@@ -537,67 +537,95 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--gold); opacity: 0.4; }
+
   /* ===== MOBILE OPTIMIZATION ===== */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
 
-  body {
-    cursor: auto; /* restore normal cursor for mobile */
+    body {
+      cursor: auto;
+    }
+
+    .cursor, .cursor-ring {
+      display: none;
+    }
+
+    /* FIX 1: Nav — tighter spacing so it fits on one line */
+    nav {
+      padding: 16px 20px;
+    }
+
+    .nav-links {
+      gap: 16px;
+    }
+
+    .nav-links a {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+    }
+
+    #home {
+      padding: 0 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(64px, 20vw, 120px);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+    }
+
+    /* FIX 3: Extra padding left/right in Overview (Who We Are) */
+    #overview {
+      padding: 80px 36px;
+    }
+
+    #members,
+    #contact {
+      padding: 80px 20px;
+    }
+
+    .overview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* FIX 2: Archive section — proper padding so content doesn't stick to edges */
+    #memory {
+      padding: 80px 36px;
+      min-height: auto;
+    }
+
+    #memory .overview-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .members-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .member-name {
+      font-size: 24px;
+    }
+
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+      padding: 30px 20px;
+    }
   }
 
-  .cursor, .cursor-ring {
-    display: none; /* remove custom cursor */
+  /* Extra small screens: hide nav links entirely, just show logo */
+  @media (max-width: 420px) {
+    .nav-links {
+      display: none;
+    }
   }
-
-  nav {
-    padding: 18px 20px;
-  }
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  #home {
-    padding: 0 20px;
-  }
-
-  .hero-title {
-    font-size: clamp(64px, 20vw, 120px);
-  }
-
-  .hero-sub {
-    font-size: 18px;
-  }
-
-  #overview,
-  #members,
-  #contact {
-    padding: 80px 20px;
-  }
-
-  .overview-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .members-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .member-name {
-    font-size: 24px;
-  }
-
-  .contact-inner {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-    padding: 30px 20px;
-  }
-}
 </style>
 </head>
 <body>
