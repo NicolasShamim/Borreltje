@@ -669,7 +669,7 @@
     <div class="overview-card reveal">
       <div class="card-num">01</div>
       <div class="card-title">The Foundation</div>
-      <p class="card-text">Geboren op OLVE, groot gebracht achter de toog.</p>
+      <p class="card-text">Geboren op OLVE, groot gebracht in het nachtegalenpark.</p>
     </div>
     <div class="overview-card reveal" style="transition-delay:0.1s">
       <div class="card-num">02</div>
@@ -706,7 +706,7 @@
         <div class="member-role">Taken</div>
       </div>
       <div class="member-info">
-        <p class="member-desc">Always three steps ahead. Somehow already at the bar before you text him.</p>
+        <p class="member-desc">Sets the tone. Picks the music. Responsible for at least 60% of the night's highlights.</p>
       </div>
     </div>
 
@@ -718,10 +718,10 @@
       <div class="member-border"></div>
       <div class="member-name-wrap">
         <div class="member-name">Gilles</div>
-        <div class="member-role">Taken</div>
+        <div class="member-role">Taken (on the leash)</div>
       </div>
       <div class="member-info">
-        <p class="member-desc">Sets the tone. Picks the music. Responsible for at least 60% of the night's highlights.</p>
+        <p class="member-desc">Always three steps ahead. Somehow already at the bar before you text him.</p>
       </div>
     </div>
 
@@ -733,7 +733,7 @@
       <div class="member-border"></div>
       <div class="member-name-wrap">
         <div class="member-name">Jef</div>
-        <div class="member-role">Single 💔 & hongerig</div>
+        <div class="member-role">Single 💔 & hongerig 🤤</div>
       </div>
       <div class="member-info">
         <p class="member-desc">Unpredictable in the best way. The reason every evening becomes a story worth telling.</p>
@@ -764,7 +764,7 @@
 
   <div class="contact-inner">
     <div class="contact-left reveal">
-      <p>Want to join a borreltje? Have intel? Know where the good drinks are? Reach out</p>
+      <p>Want to join a borreltje? Have intel? Know where the good functions are? Reach out</p>
       <div class="contact-detail">
         <span class="contact-detail-label">Location</span>
         <span class="contact-detail-val">Antwerp, BE</span>
@@ -791,18 +791,23 @@
 </div>
     </div>
 
-    <form class="contact-form reveal" style="transition-delay:0.15s" onsubmit="handleSubmit(event)">
+    <form 
+  class="contact-form reveal" 
+  style="transition-delay:0.15s"
+  action="https://formspree.io/f/mzdyogzz"
+  method="POST"
+  onsubmit="handleSubmit(event)">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" placeholder="Who are you?" id="fname">
+        <input type="text" name="name" placeholder="Who are you?" id="fname">
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="yourname@example.com" id="femail">
+        <input type="email" name="name" placeholder="yourname@example.com" id="femail">
       </div>
       <div class="form-group">
         <label>Message</label>
-        <textarea placeholder="What's on your mind..." id="fmsg"></textarea>
+        <textarea name="message" placeholder="What's on your mind..." id="fmsg"></textarea>
       </div>
       <button class="btn-submit" type="submit"><span>Send It →</span></button>
     </form>
@@ -891,12 +896,13 @@ secretInput.addEventListener('input', () => {
 
   // FORM
   function handleSubmit(e) {
-    e.preventDefault();
-    const name = document.getElementById('fname').value.trim();
-    const btn = e.target.querySelector('.btn-submit span');
-    if (!name) return;
+  const btn = e.target.querySelector('.btn-submit span');
+
+  btn.textContent = 'Sending...';
+
+  setTimeout(() => {
     btn.textContent = 'Sent ✓';
-    setTimeout(() => btn.textContent = 'Send It →', 3000);
+  }, 800);
   }
 </script>
 </body>
