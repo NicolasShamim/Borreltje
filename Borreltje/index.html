@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORRELTJE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a08;
+    --cream: #f0ebe0;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --grey: #8a8a7a;
+    --mid: #1a1a16;
+    --border: rgba(201, 168, 76, 0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 10px; height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.18s ease;
+    opacity: 0.6;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 60px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.4s, background 0.4s;
+  }
+  nav.scrolled {
+    border-color: var(--border);
+    background: rgba(10,10,8,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 48px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--cream);
+  }
+  .nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+  }
+
+  /* SECTIONS */
+  section {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  #home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 60px;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(96px, 18vw, 220px);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-title span {
+    color: var(--gold);
+    display: block;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--grey);
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.7s forwards;
+  }
+  .hero-line {
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.9s 1s forwards;
+  }
+  .hero-line span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--grey);
+    writing-mode: vertical-rl;
+  }
+  .hero-line::after {
+    content: '';
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28vw;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201,168,76,0.06);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── OVERVIEW ── */
+  #overview {
+    padding: 120px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .overview-card {
+    background: var(--mid);
+    padding: 48px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s;
+  }
+  .overview-card:hover {
+    background: #1f1f18;
+  }
+  .overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s;
+  }
+  .overview-card:hover::before { height: 100%; }
+  .card-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--grey);
+  }
+
+  /* ── MEMBERS ── */
+  #members {
+    padding: 120px 60px;
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+  .member-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--bg);
+    cursor: none;
+  }
+  .member-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1a1a14 0%, #0d0d0a 100%);
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .member-card:hover .member-bg { transform: scale(1.04); }
+  .member-initial {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: rgba(201,168,76,0.08);
+    transition: all 0.5s;
+    line-height: 1;
+  }
+  .member-card:hover .member-initial {
+    color: rgba(201,168,76,0.14);
+    transform: translate(-50%, -62%);
+  }
+  .member-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px 28px;
+    background: linear-gradient(to top, rgba(10,10,8,0.95) 0%, transparent 100%);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s;
+  }
+  .member-card:hover .member-info {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .member-name-wrap {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    transition: all 0.4s;
+  }
+  .member-card:hover .member-name-wrap {
+    bottom: 80px;
+  }
+  .member-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+  }
+  .member-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .member-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--grey);
+    font-style: italic;
+  }
+  .member-index {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(201,168,76,0.4);
+    letter-spacing: 0.1em;
+  }
+  .member-border {
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    transition: border-color 0.4s;
+    pointer-events: none;
+  }
+  .member-card:hover .member-border {
+    border-color: var(--border);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    padding: 120px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: start;
+    margin-top: 64px;
+  }
+  .contact-left p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--grey);
+    font-style: italic;
+    margin-bottom: 48px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-detail-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    min-width: 80px;
+  }
+  .contact-detail-val {
+    font-size: 16px;
+    color: var(--cream);
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .form-group label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.3s;
+    cursor: none;
+    resize: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group textarea { min-height: 100px; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(138,138,122,0.4);
+    font-style: italic;
+  }
+  .btn-submit {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    cursor: none;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
+    margin-top: 8px;
+  }
+  .btn-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .btn-submit:hover { color: var(--bg); }
+  .btn-submit:hover::before { transform: translateX(0); }
+  .btn-submit span { position: relative; z-index: 1; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(138,138,122,0.5);
+    text-transform: uppercase;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    color: rgba(201,168,76,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); opacity: 0.4; }
+  /* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+
+  body {
+    cursor: auto; /* restore normal cursor for mobile */
+  }
+
+  .cursor, .cursor-ring {
+    display: none; /* remove custom cursor */
+  }
+
+  nav {
+    padding: 18px 20px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  #home {
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(64px, 20vw, 120px);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+  }
+
+  #overview,
+  #members,
+  #contact {
+    padding: 80px 20px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .members-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .member-name {
+    font-size: 24px;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">Borreltje</a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-eyebrow">Est. 2023</div>
+  <h1 class="hero-title">
+    Borrel
+    <span>tje.</span>
+  </h1>
+  <p class="hero-sub">Broeders van andere moeders.</p>
+  <div class="hero-line"><span>Scroll</span></div>
+  <div class="hero-bg-text">B</div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title reveal">WHO WE ARE</h2>
+
+  <p class="reveal" style="font-size:20px; color:var(--grey); max-width:600px; line-height:1.8; font-style:italic;">
+    Borreltje is niet zomaar een vriendengroep. Het is een familie. 
+  </p>
+
+  <div class="overview-grid">
+    <div class="overview-card reveal">
+      <div class="card-num">01</div>
+      <div class="card-title">The Foundation</div>
+      <p class="card-text">Geboren op OLVE, groot gebracht achter de toog.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.1s">
+      <div class="card-num">02</div>
+      <div class="card-title">The Code</div>
+      <p class="card-text">In Borreltje hoort geen drama thuis. We zijn er voor elkaar, door nacht und nebel.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.2s">
+      <div class="card-num">03</div>
+      <div class="card-title">The Roster</div>
+      <p class="card-text">Vier musketiers. Eén front. Nicolas, Gilles, Jef, en Len.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.3s">
+      <div class="card-num">04</div>
+      <div class="card-title">The Mission</div>
+      <p class="card-text">De grootste spelers worden van Antwerpen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members">
+  <div class="section-label">Members</div>
+  <h2 class="section-title reveal">THE ROSTER</h2>
+
+  <div class="members-grid">
+    <!-- Nicolas -->
+    <div class="member-card reveal">
+      <div class="member-bg"></div>
+      <div class="member-initial">N</div>
+      <div class="member-index">01 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Nicolas</div>
+        <div class="member-role">The Strategist</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Always three steps ahead. Somehow already at the bar before you text him.</p>
+      </div>
+    </div>
+
+    <!-- Gilles -->
+    <div class="member-card reveal" style="transition-delay:0.1s">
+      <div class="member-bg"></div>
+      <div class="member-initial">G</div>
+      <div class="member-index">02 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Gilles</div>
+        <div class="member-role">The Vibe Architect</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Sets the tone. Picks the music. Responsible for at least 60% of the night's highlights.</p>
+      </div>
+    </div>
+
+    <!-- Jef -->
+    <div class="member-card reveal" style="transition-delay:0.2s">
+      <div class="member-bg"></div>
+      <div class="member-initial">J</div>
+      <div class="member-index">03 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Jef</div>
+        <div class="member-role">The Wild Card</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Unpredictable in the best way. The reason every evening becomes a story worth telling.</p>
+      </div>
+    </div>
+
+    <!-- Len -->
+    <div class="member-card reveal" style="transition-delay:0.3s">
+      <div class="member-bg"></div>
+      <div class="member-initial">L</div>
+      <div class="member-index">04 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Len</div>
+        <div class="member-role">The Anchor</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">He who actually remembers what happened. Keeps everyone grounded, until he doesn't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title reveal">GET IN TOUCH</h2>
+
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <p>Want to join a borreltje? Have intel? Know where the good drinks are? Reach out</p>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Location</span>
+        <span class="contact-detail-val">Antwerp, BE</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Uiterlijk</span>
+        <span class="contact-detail-val">Mogger</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Dress code</span>
+        <span class="contact-detail-val">Old money</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">First round</span>
+        <span class="contact-detail-val">On us</span>
+      </div>
+      <div style="margin-top:40px;">
+  <input 
+    type="password" 
+    placeholder="Enter code..." 
+    id="secretCode"
+    style="background:transparent;border:none;border-bottom:1px solid var(--border);color:white;padding:10px;width:200px;"
+  >
+</div>
+    </div>
+
+    <form class="contact-form reveal" style="transition-delay:0.15s" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Who are you?" id="fname">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="yourname@example.com" id="femail">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="What's on your mind..." id="fmsg"></textarea>
+      </div>
+      <button class="btn-submit" type="submit"><span>Send It →</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- SECRET MEMORY -->
+<section id="memory" style="display:none;">
+  <div class="section-label">Memory</div>
+  <h2 class="section-title">ARCHIVE</h2>
+
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="card-title">Avond 24/04/2026</div>
+      <p class="card-text">Creatie website.</p>
+    </div>
+
+    <div class="overview-card">
+      <div class="card-title">September 2026</div>
+      <p class="card-text">Benidorm.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Borreltje — All rights reserved and mostly upheld</p>
+  <div class="footer-logo">BRRLTJE</div>
+  <p>Nicolas · Gilles · Jef · Len</p>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animCursor() {
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+  document.querySelectorAll('a, button, .member-card, .overview-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.opacity = '0.3'; });
+    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.6'; });
+  });
+
+  // SECRET TAB UNLOCK
+const secretInput = document.getElementById('secretCode');
+
+secretInput.addEventListener('input', () => {
+  if (secretInput.value === "0504") {
+    const memory = document.getElementById('memory');
+    memory.style.display = 'block';
+    memory.scrollIntoView({ behavior: 'smooth' });
+    secretInput.value = '';
+  }
+});
+
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    // active links
+    document.querySelectorAll('section').forEach(s => {
+      const top = s.getBoundingClientRect().top;
+      if (top <= 120 && top > -s.offsetHeight + 120) {
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${s.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  });
+
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+
+  // FORM
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
+    const btn = e.target.querySelector('.btn-submit span');
+    if (!name) return;
+    btn.textContent = 'Sent ✓';
+    setTimeout(() => btn.textContent = 'Send It →', 3000);
+  }
+</script>
+</body>
+</html>
