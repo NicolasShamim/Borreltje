@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORRELTJE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">Borreltje</a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-eyebrow">Est. 2023</div>
+  <h1 class="hero-title">
+    Borrel
+    <span>tje.</span>
+  </h1>
+  <p class="hero-sub">Broeders van andere moeders.</p>
+  <div class="hero-line"><span>Scroll</span></div>
+  <div class="hero-bg-text">B</div>
+  <div class="hero-photo"><img src="assets/hero-group.jpg" alt=""></div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title reveal">WHO WE ARE</h2>
+
+  <p class="reveal" style="font-size:20px; color:var(--grey); max-width:600px; line-height:1.8; font-style:italic;">
+    Borreltje is niet zomaar een vriendengroep. Het is een familie.
+  </p>
+
+  <div class="overview-grid">
+    <div class="overview-card reveal">
+      <div class="card-num">01</div>
+      <div class="card-title">The Foundation</div>
+      <p class="card-text">Geboren op OLVE, groot gebracht in het nachtegalenpark.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.1s">
+      <div class="card-num">02</div>
+      <div class="card-title">The Code</div>
+      <p class="card-text">In Borreltje hoort geen drama thuis. We zijn er voor elkaar, door nacht und nebel.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.2s">
+      <div class="card-num">03</div>
+      <div class="card-title">The Roster</div>
+      <p class="card-text">Vier musketiers. Eén front. Nicolas, Gilles, Jef, en Len.</p>
+    </div>
+    <div class="overview-card reveal" style="transition-delay:0.3s">
+      <div class="card-num">04</div>
+      <div class="card-title">The Mission</div>
+      <p class="card-text">De grootste spelers worden van Antwerpen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHT OF THE MONTH -->
+<section id="highlight">
+  <div class="section-label">This Month - july</div>
+  <h2 class="section-title reveal" style="font-size:clamp(32px,4vw,48px);">HIGHLIGHT OF THE MONTH</h2>
+  <div class="highlight-box reveal">
+    <div class="highlight-photo empty">
+      <img src="assets/highlight.jpg" alt="Highlight of the month" onerror="this.parentElement.classList.add('empty')" onload="this.parentElement.classList.remove('empty')">
+    </div>
+    <div class="highlight-text">
+      <div class="highlight-date">Juli 2026</div>
+      <p class="highlight-caption">De duvels</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS --><section id="members">
+  <div class="section-label">Members</div>
+  <h2 class="section-title reveal">THE ROSTER</h2>
+
+  <div class="members-grid">
+    <!-- Nicolas -->
+    <div class="member-card reveal" style="--member-photo:url('assets/portrait-nicolas.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">N</div>
+      <div class="member-index">01 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Nicolas</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Group leader</p>
+      </div>
+    </div>
+
+    <!-- Gilles -->
+    <div class="member-card reveal" style="transition-delay:0.1s; --member-photo:url('assets/portrait-gilles.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">G</div>
+      <div class="member-index">02 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Gilles</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">SO naar Polen</p>
+      </div>
+    </div>
+
+    <!-- Jef -->
+    <div class="member-card reveal" style="transition-delay:0.2s; --member-photo:url('assets/portrait-jef.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">J</div>
+      <div class="member-index">03 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Jef</div>
+        <div class="member-role">Co-founder</div>
+        <div class="member-role">Single 💔 & hongerig 🤤</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">12 tot 18 max. Latina's</p>
+      </div>
+    </div>
+
+    <!-- Len -->
+    <div class="member-card reveal" style="transition-delay:0.3s; --member-photo:url('assets/portrait-len.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">L</div>
+      <div class="member-index">04 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Len</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Mogger</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HONORABLE MENTIONS -->
+  <div class="honorable-mentions reveal" style="transition-delay:0.4s">
+    <div class="honorable-label">Honorable Mentions</div>
+    <div class="honorable-grid">
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">OG</div>
+        <p class="honorable-desc">Always shows up. Never on the group chat. Present in spirit and in shots.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Guest · Recurring</div>
+        <p class="honorable-desc">Somehow invited themselves and somehow that was fine. Respect.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Legend · Retired</div>
+        <p class="honorable-desc">Was there for the early nights. The stories don't mention them by name, but they were there.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Part-time</div>
+        <p class="honorable-desc">Arrives late. Leaves early. Somehow the highlight of the evening every single time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="section-label">Partners</div>
+  <h2 class="section-title reveal">OFFICIAL SPONSORS</h2>
+
+  <p class="sponsors-intro reveal">
+    De organisaties en instellingen die het mogelijk maken dat wij blijven lachen, en leven.
+  </p>
+
+  <!-- PLATINUM -->
+  <div class="sponsors-tier reveal">
+    <div class="sponsors-tier-label">Platinum</div>
+    <div class="sponsors-row-platinum">
+
+      <div class="sponsor-card platinum">
+        <div class="sponsor-tier-badge">Platinum</div>
+        <div class="sponsor-logo-text">Jowen</div>
+        <div class="sponsor-tagline">Official Home Ground</div>
+      </div>
+
+      <div class="sponsor-card platinum">
+        <div class="sponsor-tier-badge">Platinum</div>
+        <div class="sponsor-logo-text">V. Fransen</div>
+        <div class="sponsor-tagline">Official investor</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GOLD -->
+  <div class="sponsors-tier reveal" style="transition-delay:0.1s">
+    <div class="sponsors-tier-label">Gold</div>
+    <div class="sponsors-row-gold">
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Uber</div>
+        <div class="sponsor-tagline">Post-night returns</div>
+      </div>
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Pak Halal</div>
+        <div class="sponsor-tagline">Holy ground, 2AM</div>
+      </div>
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Aciacialaan achtertuin</div>
+        <div class="sponsor-tagline">De verlichting</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BRONZE -->
+  <div class="sponsors-tier reveal" style="transition-delay:0.2s">
+    <div class="sponsors-tier-label">Bronze</div>
+    <div class="sponsors-row-bronze">
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Bankje</div>
+        <div class="sponsor-tagline">Last option</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Dirk</div>
+        <div class="sponsor-tagline">Inspiration, Legend</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Lendi</div>
+        <div class="sponsor-tagline">Brede legend</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Igor</div>
+        <div class="sponsor-tagline">No comment</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title reveal">GET IN TOUCH</h2>
+
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <p>Want to join a borreltje? Have intel? Know where the good functions are? Reach out.</p>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Location</span>
+        <span class="contact-detail-val">Antwerp, BE</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Uiterlijk</span>
+        <span class="contact-detail-val">Mogger</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Dress code</span>
+        <span class="contact-detail-val">Old money</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">First round</span>
+        <span class="contact-detail-val">On us</span>
+      </div>
+      <div style="margin-top:40px;">
+        <input
+          type="password"
+          placeholder="Enter code..."
+          id="secretCode"
+          style="background:transparent;border:none;border-bottom:1px solid var(--border);color:white;padding:10px;width:200px;font-family:'DM Mono',monospace;font-size:12px;outline:none;"
+        >
+      </div>
+    </div>
+
+    <form
+      class="contact-form reveal"
+      style="transition-delay:0.15s"
+      action="https://formspree.io/f/mzdyogzz"
+      method="POST"
+      onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Who are you?" id="fname">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="yourname@example.com" id="femail">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="What's on your mind..." id="fmsg"></textarea>
+      </div>
+      <button class="btn-submit" type="submit"><span>Send It →</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- SECRET MEMORY -->
+<section id="memory" style="display:none; padding:120px 60px;">
+  <div class="section-label">Memory</div>
+  <h2 class="section-title">VAULT</h2>
+
+  <div class="overview-grid" style="margin-top:48px;">
+    <div class="overview-card">
+      <div class="card-title">Avond 24/04/2026</div>
+      <p class="card-text">Creatie website.</p>
+    </div>
+    <div class="overview-card">
+      <div class="card-title">September 2026</div>
+      <p class="card-text">Benidorm.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Borreltje — All rights reserved and mostly upheld</p>
+  <div class="footer-logo">BRRLTJE</div>
+  <p>Nicolas · Gilles · Jef · Len</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

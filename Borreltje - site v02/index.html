@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BORRELTJE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HIRING BAR -->
+<div class="hiring-bar" id="hiringBar">
+  <span class="hiring-dot"></span>
+  <p class="hiring-text"><strong>Now hiring</strong><span class="hiring-sep">/</span>Girlfriend &mdash; Jef Celis<span class="hiring-sep">/</span><span class="hiring-loc">Antwerp, BE &middot; Immediate start</span></p>
+  <a href="#vacancy" class="hiring-cta">View opening &rarr;</a>
+  <button class="hiring-close" id="hiringClose" type="button" aria-label="Dismiss announcement">&times;</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">Borreltje</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#vacancy">Careers</a></li>
+    <li class="nav-optional"><a href="#highlight">Highlight</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" type="button"
+          aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-eyebrow">Est. 2023</div>
+  <h1 class="hero-title">
+    Borrel
+    <span>tje.</span>
+  </h1>
+  <p class="hero-sub">Broeders van andere moeders.</p>
+
+  <a href="#vacancy" class="hero-vacancy">
+    <span class="hero-vacancy-badge">Open position</span>
+    <span class="hero-vacancy-role">Girlfriend &mdash; Jef Celis</span>
+    <span class="hero-vacancy-arrow">&rarr;</span>
+  </a>
+
+  <div class="hero-line"><span>Scroll</span></div>
+  <div class="hero-bg-text">B</div>
+  <div class="hero-photo"><img src="assets/hero-group.jpg" alt=""></div>
+</section>
+
+<!-- VACANCY -->
+<section id="vacancy">
+  <div class="section-label">Careers</div>
+  <h2 class="section-title reveal">OPEN POSITION</h2>
+  <p class="vacancy-intro reveal">
+    E&eacute;n vacature. Interne werving heeft jarenlang niets opgeleverd, dus openen we deze rol
+    officieel voor externe kandidaten.
+  </p>
+
+  <article class="job-card reveal">
+
+    <header class="job-head">
+      <div class="job-head-main">
+        <div class="job-status"><span class="job-status-dot"></span>Actively recruiting</div>
+        <h3 class="job-title">Girlfriend <span>(m/v/x)</span></h3>
+        <p class="job-team">Roster Operations &middot; reporting to <strong>Jef Celis</strong></p>
+        <ul class="job-tags">
+          <li>Full-time</li>
+          <li>Antwerp, BE</li>
+          <li>On-site</li>
+          <li>Permanent</li>
+          <li class="urgent">Urgent</li>
+        </ul>
+      </div>
+      <div class="job-head-side">
+        <a href="#contact" class="job-apply"><span>Apply now &rarr;</span></a>
+        <p class="job-apply-note">Sollicitaties lopen via het formulier onderaan. Dat werkt echt.</p>
+      </div>
+    </header>
+
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Req ID</span>
+        <span class="job-meta-val">BRRLTJE-2026-001</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Plaatsen</span>
+        <span class="job-meta-val">1</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Start date</span>
+        <span class="job-meta-val">Zo snel mogelijk</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Proeftijd</span>
+        <span class="job-meta-val">3 borrels</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Compensation</span>
+        <span class="job-meta-val">Competitief &middot; Pak Halal incl.</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Closing date</span>
+        <span class="job-meta-val">Open tot ingevuld</span>
+      </div>
+    </div>
+
+    <div class="job-body">
+      <section class="job-block">
+        <h4 class="job-block-title">About the role</h4>
+        <p class="job-block-text">
+          Borreltje zoekt een partner voor Jef. Je werkt nauw samen met de volledige roster
+          en rapporteert rechtstreeks aan Jef. De positie is zichtbaar, veeleisend en wordt
+          gewaardeerd &mdash; ook al zal hij dat zelf nooit hardop zeggen.
+        </p>
+      </section>
+
+      <section class="job-block">
+        <h4 class="job-block-title">Hiring process</h4>
+        <ol class="job-steps">
+          <li><span>01</span>Formulier invullen</li>
+          <li><span>02</span>Screening door de roster</li>
+          <li><span>03</span>Kennismaking op locatie</li>
+          <li><span>04</span>Aanbod &amp; eerste ronde op JC</li>
+        </ol>
+      </section>
+    </div>
+
+    <footer class="job-foot">
+      <p>
+        Borreltje is an equal opportunity vriendengroep. Elke kandidatuur wordt beoordeeld door een
+        panel van vier. Beslissing bij meerderheid, veto bij Jef.
+      </p>
+      <a href="#contact" class="job-foot-link">Solliciteer via het formulier &rarr;</a>
+    </footer>
+
+  </article>
+</section>
+
+<!-- HIGHLIGHT OF THE MONTH -->
+<section id="highlight">
+  <div class="section-label">This Month &mdash; August</div>
+  <h2 class="section-title reveal" style="font-size:clamp(26px,7vw,48px);">HIGHLIGHT OF THE MONTH</h2>
+
+  <div class="highlight-box reveal">
+    <div class="highlight-media">
+      <video
+        id="highlightVideo"
+        class="highlight-video"
+        autoplay muted loop playsinline preload="metadata">
+        <source src="assets/koffiekoek.mp4" type="video/mp4">
+        <source src="assets/koffiekoek.MOV" type="video/mp4">
+      </video>
+      <span class="highlight-media-tag">Video</span>
+      <button class="video-sound" id="videoSound" type="button" aria-label="Toggle sound">
+        <span>Sound off</span>
+      </button>
+    </div>
+
+    <div class="highlight-text">
+      <div class="highlight-date">Augustus 2026</div>
+      <p class="highlight-title">Chocolade cremekoek</p>
+      <p class="highlight-caption">
+        Negen seconden die de maand samenvatten. Verdere uitleg is niet beschikbaar.
+      </p>
+      <div class="highlight-meta">
+        <span>00:09</span>
+        <span>Antwerp</span>
+        <span>Unedited</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members">
+  <div class="section-label">Members</div>
+  <h2 class="section-title reveal">THE ROSTER</h2>
+
+  <div class="members-grid">
+    <!-- Nicolas -->
+    <div class="member-card reveal" style="--member-photo:url('assets/portrait-nicolas.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">N</div>
+      <div class="member-index">01 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Nicolas</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Group leader</p>
+      </div>
+    </div>
+
+    <!-- Gilles -->
+    <div class="member-card reveal" style="transition-delay:0.1s; --member-photo:url('assets/portrait-gilles.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">G</div>
+      <div class="member-index">02 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Gilles</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">SO naar Polen</p>
+      </div>
+    </div>
+
+    <!-- Jef -->
+    <div class="member-card member-card--single reveal" style="transition-delay:0.2s; --member-photo:url('assets/portrait-jef.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">J</div>
+      <div class="member-index">03 / 04</div>
+      <div class="member-border"></div>
+
+      <svg class="single-ring" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid meet"
+           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+        <defs>
+          <path id="singleRingPath" d="M 8 8 H 292 V 392 H 8 Z"/>
+        </defs>
+        <use class="single-ring-track" href="#singleRingPath" xlink:href="#singleRingPath"/>
+        <text class="single-ring-text" textLength="2672" lengthAdjust="spacing" dy="0.34em"><textPath href="#singleRingPath" xlink:href="#singleRingPath" startOffset="-133.6">SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·<animate attributeName="startOffset" from="-133.6" to="-66.8" dur="1.6s" repeatCount="indefinite"/></textPath></text>
+      </svg>
+
+      <div class="member-name-wrap">
+        <div class="member-name">Jef</div>
+        <div class="member-role">Co-founder</div>
+        <div class="member-role">Single &#128148; &amp; hongerig &#129316;</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Vacature open &mdash; zie <a href="#vacancy">Careers</a></p>
+      </div>
+    </div>
+
+    <!-- Len -->
+    <div class="member-card reveal" style="transition-delay:0.3s; --member-photo:url('assets/portrait-len.jpg')">
+      <div class="member-bg"></div>
+      <div class="member-initial">L</div>
+      <div class="member-index">04 / 04</div>
+      <div class="member-border"></div>
+      <div class="member-name-wrap">
+        <div class="member-name">Len</div>
+        <div class="member-role">Co-founder</div>
+      </div>
+      <div class="member-info">
+        <p class="member-desc">Mogger</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HONORABLE MENTIONS -->
+  <div class="honorable-mentions reveal" style="transition-delay:0.4s">
+    <div class="honorable-label">Honorable Mentions</div>
+    <div class="honorable-grid">
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">OG</div>
+        <p class="honorable-desc">Always shows up. Never on the group chat. Present in spirit and in shots.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Guest &middot; Recurring</div>
+        <p class="honorable-desc">Somehow invited themselves and somehow that was fine. Respect.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Legend &middot; Retired</div>
+        <p class="honorable-desc">Was there for the early nights. The stories don&rsquo;t mention them by name, but they were there.</p>
+      </div>
+
+      <div class="honorable-card">
+        <div class="honorable-name">Name Here</div>
+        <div class="honorable-tag">Part-time</div>
+        <p class="honorable-desc">Arrives late. Leaves early. Somehow the highlight of the evening every single time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="section-label">Partners</div>
+  <h2 class="section-title reveal">OFFICIAL SPONSORS</h2>
+
+  <p class="sponsors-intro reveal">
+    De organisaties en instellingen die het mogelijk maken dat wij blijven lachen, en leven.
+  </p>
+
+  <!-- PLATINUM -->
+  <div class="sponsors-tier reveal">
+    <div class="sponsors-tier-label">Platinum</div>
+    <div class="sponsors-row-platinum">
+
+      <div class="sponsor-card platinum">
+        <div class="sponsor-tier-badge">Platinum</div>
+        <div class="sponsor-logo-text">Jowen</div>
+        <div class="sponsor-tagline">Official Home Ground</div>
+      </div>
+
+      <div class="sponsor-card platinum">
+        <div class="sponsor-tier-badge">Platinum</div>
+        <div class="sponsor-logo-text">V. Fransen</div>
+        <div class="sponsor-tagline">Official investor</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GOLD -->
+  <div class="sponsors-tier reveal" style="transition-delay:0.1s">
+    <div class="sponsors-tier-label">Gold</div>
+    <div class="sponsors-row-gold">
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Uber</div>
+        <div class="sponsor-tagline">Post-night returns</div>
+      </div>
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Pak Halal</div>
+        <div class="sponsor-tagline">Holy ground, 2AM</div>
+      </div>
+
+      <div class="sponsor-card gold">
+        <div class="sponsor-tier-badge">Gold</div>
+        <div class="sponsor-logo-text">Aciacialaan achtertuin</div>
+        <div class="sponsor-tagline">De verlichting</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BRONZE -->
+  <div class="sponsors-tier reveal" style="transition-delay:0.2s">
+    <div class="sponsors-tier-label">Bronze</div>
+    <div class="sponsors-row-bronze">
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Bankje</div>
+        <div class="sponsor-tagline">Last option</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Dirk</div>
+        <div class="sponsor-tagline">Inspiration, Legend</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Lendi</div>
+        <div class="sponsor-tagline">Brede legend</div>
+      </div>
+
+      <div class="sponsor-card bronze">
+        <div class="sponsor-tier-badge">Bronze</div>
+        <div class="sponsor-logo-text">Igor</div>
+        <div class="sponsor-tagline">No comment</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-glow" aria-hidden="true"></div>
+
+  <div class="section-label">Contact</div>
+  <h2 class="section-title reveal">GET IN TOUCH</h2>
+  <p class="contact-tagline reveal">
+    Dit formulier werkt <em>echt</em>. Wat je hier typt komt bij ons aan.
+  </p>
+
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <p>Want to join a borreltje? Have intel? Know where the good functions are? Reach out.</p>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Location</span>
+        <span class="contact-detail-val">Antwerp, BE</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Uiterlijk</span>
+        <span class="contact-detail-val">Mogger</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Dress code</span>
+        <span class="contact-detail-val">Old money</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">First round</span>
+        <span class="contact-detail-val">On us</span>
+      </div>
+      <div class="contact-detail">
+        <span class="contact-detail-label">Open role</span>
+        <span class="contact-detail-val"><a href="#vacancy" class="contact-detail-link">Girlfriend &mdash; Jef Celis &rarr;</a></span>
+      </div>
+      <div class="secret-wrap">
+        <input
+          type="password"
+          placeholder="Enter code..."
+          id="secretCode"
+          aria-label="Secret code"
+        >
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal" style="transition-delay:0.15s">
+      <div class="form-panel-label">
+        <span class="form-live"><span class="form-live-dot"></span>Live</span>
+        <span class="form-panel-title">Send us a message</span>
+      </div>
+
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/mzdyogzz"
+        method="POST"
+        onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="fname">Your Name</label>
+          <input type="text" name="name" placeholder="Who are you?" id="fname" required>
+        </div>
+        <div class="form-group">
+          <label for="femail">Email</label>
+          <input type="email" name="email" placeholder="yourname@example.com" id="femail" required>
+        </div>
+        <div class="form-group">
+          <label for="fmsg">Message</label>
+          <textarea name="message" placeholder="What&rsquo;s on your mind..." id="fmsg" required></textarea>
+        </div>
+        <button class="btn-submit" type="submit"><span>Send It &rarr;</span></button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <p class="form-foot">Geen spam. Geen nieuwsbrief. Strikt confidential.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SECRET MEMORY -->
+<section id="memory" style="display:none; padding:120px 60px;">
+  <div class="section-label">Memory</div>
+  <h2 class="section-title">VAULT</h2>
+
+  <div class="overview-grid" style="margin-top:48px;">
+    <div class="overview-card">
+      <div class="card-title">Avond 24/04/2026</div>
+      <p class="card-text">Creatie website.</p>
+    </div>
+    <div class="overview-card">
+      <div class="card-title">September 2026</div>
+      <p class="card-text">Benidorm.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Borreltje &mdash; All rights reserved and mostly upheld</p>
+  <div class="footer-logo">BRRLTJE</div>
+  <p>Nicolas &middot; Gilles &middot; Jef &middot; Len</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
