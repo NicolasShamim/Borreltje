@@ -12,31 +12,17 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- HIRING BAR -->
-<div class="hiring-bar" id="hiringBar">
-  <span class="hiring-dot"></span>
-  <p class="hiring-text"><strong>Now hiring</strong><span class="hiring-sep">/</span>Girlfriend &mdash; Jef Celis<span class="hiring-sep">/</span><span class="hiring-loc">Antwerp, BE &middot; Immediate start</span></p>
-  <a href="#vacancy" class="hiring-cta">View opening &rarr;</a>
-  <button class="hiring-close" id="hiringClose" type="button" aria-label="Dismiss announcement">&times;</button>
-</div>
-
 <!-- NAV -->
 <nav id="nav">
   <a href="#home" class="nav-logo">Borreltje</a>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#vacancy">Careers</a></li>
-    <li class="nav-optional"><a href="#highlight">Highlight</a></li>
+    <li><a href="#overview">Overview</a></li>
     <li><a href="#members">Members</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" type="button"
-          aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <!-- HERO -->
 <section id="home">
@@ -46,144 +32,60 @@
     <span>tje.</span>
   </h1>
   <p class="hero-sub">Broeders van andere moeders.</p>
-
-  <a href="#vacancy" class="hero-vacancy">
-    <span class="hero-vacancy-badge">Open position</span>
-    <span class="hero-vacancy-role">Girlfriend &mdash; Jef Celis</span>
-    <span class="hero-vacancy-arrow">&rarr;</span>
-  </a>
-
   <div class="hero-line"><span>Scroll</span></div>
   <div class="hero-bg-text">B</div>
   <div class="hero-photo"><img src="assets/hero-group.jpg" alt=""></div>
 </section>
 
-<!-- VACANCY -->
-<section id="vacancy">
-  <div class="section-label">Careers</div>
-  <h2 class="section-title reveal">OPEN POSITION</h2>
-  <p class="vacancy-intro reveal">
-    E&eacute;n vacature. Interne werving heeft jarenlang niets opgeleverd, dus openen we deze rol
-    officieel voor externe kandidaten.
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title reveal">WHO WE ARE</h2>
+
+  <p class="reveal" style="font-size:20px; color:var(--grey); max-width:600px; line-height:1.8; font-style:italic;">
+    Borreltje is niet zomaar een vriendengroep. Het is een familie.
   </p>
 
-  <article class="job-card reveal">
-
-    <header class="job-head">
-      <div class="job-head-main">
-        <div class="job-status"><span class="job-status-dot"></span>Actively recruiting</div>
-        <h3 class="job-title">Girlfriend <span>(m/v/x)</span></h3>
-        <p class="job-team">Roster Operations &middot; reporting to <strong>Jef Celis</strong></p>
-        <ul class="job-tags">
-          <li>Full-time</li>
-          <li>Antwerp, BE</li>
-          <li>On-site</li>
-          <li>Permanent</li>
-          <li class="urgent">Urgent</li>
-        </ul>
-      </div>
-      <div class="job-head-side">
-        <a href="#contact" class="job-apply"><span>Apply now &rarr;</span></a>
-        <p class="job-apply-note">Sollicitaties lopen via het formulier onderaan. Dat werkt echt.</p>
-      </div>
-    </header>
-
-    <div class="job-meta">
-      <div class="job-meta-item">
-        <span class="job-meta-label">Req ID</span>
-        <span class="job-meta-val">BRRLTJE-2026-001</span>
-      </div>
-      <div class="job-meta-item">
-        <span class="job-meta-label">Plaatsen</span>
-        <span class="job-meta-val">1</span>
-      </div>
-      <div class="job-meta-item">
-        <span class="job-meta-label">Start date</span>
-        <span class="job-meta-val">Zo snel mogelijk</span>
-      </div>
-      <div class="job-meta-item">
-        <span class="job-meta-label">Proeftijd</span>
-        <span class="job-meta-val">3 borrels</span>
-      </div>
-      <div class="job-meta-item">
-        <span class="job-meta-label">Compensation</span>
-        <span class="job-meta-val">Competitief &middot; Pak Halal incl.</span>
-      </div>
-      <div class="job-meta-item">
-        <span class="job-meta-label">Closing date</span>
-        <span class="job-meta-val">Open tot ingevuld</span>
-      </div>
+  <div class="overview-grid">
+    <div class="overview-card reveal">
+      <div class="card-num">01</div>
+      <div class="card-title">The Foundation</div>
+      <p class="card-text">Geboren op OLVE, groot gebracht in het nachtegalenpark.</p>
     </div>
-
-    <div class="job-body">
-      <section class="job-block">
-        <h4 class="job-block-title">About the role</h4>
-        <p class="job-block-text">
-          Borreltje zoekt een partner voor Jef. Je werkt nauw samen met de volledige roster
-          en rapporteert rechtstreeks aan Jef. De positie is zichtbaar, veeleisend en wordt
-          gewaardeerd &mdash; ook al zal hij dat zelf nooit hardop zeggen.
-        </p>
-      </section>
-
-      <section class="job-block">
-        <h4 class="job-block-title">Hiring process</h4>
-        <ol class="job-steps">
-          <li><span>01</span>Formulier invullen</li>
-          <li><span>02</span>Screening door de roster</li>
-          <li><span>03</span>Kennismaking op locatie</li>
-          <li><span>04</span>Aanbod &amp; eerste ronde op JC</li>
-        </ol>
-      </section>
+    <div class="overview-card reveal" style="transition-delay:0.1s">
+      <div class="card-num">02</div>
+      <div class="card-title">The Code</div>
+      <p class="card-text">In Borreltje hoort geen drama thuis. We zijn er voor elkaar, door nacht und nebel.</p>
     </div>
-
-    <footer class="job-foot">
-      <p>
-        Borreltje is an equal opportunity vriendengroep. Elke kandidatuur wordt beoordeeld door een
-        panel van vier. Beslissing bij meerderheid, veto bij Jef.
-      </p>
-      <a href="#contact" class="job-foot-link">Solliciteer via het formulier &rarr;</a>
-    </footer>
-
-  </article>
-</section>
-
-<!-- HIGHLIGHT OF THE MONTH -->
-<section id="highlight">
-  <div class="section-label">This Month &mdash; August</div>
-  <h2 class="section-title reveal" style="font-size:clamp(26px,7vw,48px);">HIGHLIGHT OF THE MONTH</h2>
-
-  <div class="highlight-box reveal">
-    <div class="highlight-media">
-      <video
-        id="highlightVideo"
-        class="highlight-video"
-        autoplay muted loop playsinline preload="metadata">
-        <source src="assets/koffiekoek.mp4" type="video/mp4">
-        <source src="assets/koffiekoek.MOV" type="video/mp4">
-      </video>
-      <span class="highlight-media-tag">Video</span>
-      <button class="video-sound" id="videoSound" type="button" aria-label="Toggle sound">
-        <span>Sound off</span>
-      </button>
+    <div class="overview-card reveal" style="transition-delay:0.2s">
+      <div class="card-num">03</div>
+      <div class="card-title">The Roster</div>
+      <p class="card-text">Vier musketiers. Eén front. Nicolas, Gilles, Jef, en Len.</p>
     </div>
-
-    <div class="highlight-text">
-      <div class="highlight-date">Augustus 2026</div>
-      <p class="highlight-title">Chocolade cremekoek</p>
-      <p class="highlight-caption">
-        Negen seconden die de maand samenvatten. Verdere uitleg is niet beschikbaar.
-      </p>
-      <div class="highlight-meta">
-        <span>00:09</span>
-        <span>Antwerp</span>
-        <span>Unedited</span>
-      </div>
+    <div class="overview-card reveal" style="transition-delay:0.3s">
+      <div class="card-num">04</div>
+      <div class="card-title">The Mission</div>
+      <p class="card-text">De grootste spelers worden van Antwerpen.</p>
     </div>
   </div>
 </section>
 
-<!-- MEMBERS -->
-<section id="members">
+<!-- HIGHLIGHT OF THE MONTH -->
+<section id="highlight">
+  <div class="section-label">This Month - july</div>
+  <h2 class="section-title reveal" style="font-size:clamp(32px,4vw,48px);">HIGHLIGHT OF THE MONTH</h2>
+  <div class="highlight-box reveal">
+    <div class="highlight-photo empty">
+      <img src="assets/highlight.jpg" alt="Highlight of the month" onerror="this.parentElement.classList.add('empty')" onload="this.parentElement.classList.remove('empty')">
+    </div>
+    <div class="highlight-text">
+      <div class="highlight-date">Juli 2026</div>
+      <p class="highlight-caption">De duvels</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS --><section id="members">
   <div class="section-label">Members</div>
   <h2 class="section-title reveal">THE ROSTER</h2>
 
@@ -219,28 +121,18 @@
     </div>
 
     <!-- Jef -->
-    <div class="member-card member-card--single reveal" style="transition-delay:0.2s; --member-photo:url('assets/portrait-jef.jpg')">
+    <div class="member-card reveal" style="transition-delay:0.2s; --member-photo:url('assets/portrait-jef.jpg')">
       <div class="member-bg"></div>
       <div class="member-initial">J</div>
       <div class="member-index">03 / 04</div>
       <div class="member-border"></div>
-
-      <svg class="single-ring" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid meet"
-           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-        <defs>
-          <path id="singleRingPath" d="M 8 8 H 292 V 392 H 8 Z"/>
-        </defs>
-        <use class="single-ring-track" href="#singleRingPath" xlink:href="#singleRingPath"/>
-        <text class="single-ring-text" textLength="2672" lengthAdjust="spacing" dy="0.34em"><textPath href="#singleRingPath" xlink:href="#singleRingPath" startOffset="-133.6">SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·SINGLE·<animate attributeName="startOffset" from="-133.6" to="-66.8" dur="1.6s" repeatCount="indefinite"/></textPath></text>
-      </svg>
-
       <div class="member-name-wrap">
         <div class="member-name">Jef</div>
         <div class="member-role">Co-founder</div>
-        <div class="member-role">Single &#128148; &amp; hongerig &#129316;</div>
+        <div class="member-role">Single 💔 & hongerig 🤤</div>
       </div>
       <div class="member-info">
-        <p class="member-desc">Vacature open &mdash; zie <a href="#vacancy">Careers</a></p>
+        <p class="member-desc">12 tot 18 max. Latina's</p>
       </div>
     </div>
 
@@ -273,14 +165,14 @@
 
       <div class="honorable-card">
         <div class="honorable-name">Name Here</div>
-        <div class="honorable-tag">Guest &middot; Recurring</div>
+        <div class="honorable-tag">Guest · Recurring</div>
         <p class="honorable-desc">Somehow invited themselves and somehow that was fine. Respect.</p>
       </div>
 
       <div class="honorable-card">
         <div class="honorable-name">Name Here</div>
-        <div class="honorable-tag">Legend &middot; Retired</div>
-        <p class="honorable-desc">Was there for the early nights. The stories don&rsquo;t mention them by name, but they were there.</p>
+        <div class="honorable-tag">Legend · Retired</div>
+        <p class="honorable-desc">Was there for the early nights. The stories don't mention them by name, but they were there.</p>
       </div>
 
       <div class="honorable-card">
@@ -384,13 +276,8 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="contact-glow" aria-hidden="true"></div>
-
   <div class="section-label">Contact</div>
   <h2 class="section-title reveal">GET IN TOUCH</h2>
-  <p class="contact-tagline reveal">
-    Dit formulier werkt <em>echt</em>. Wat je hier typt komt bij ons aan.
-  </p>
 
   <div class="contact-inner">
     <div class="contact-left reveal">
@@ -411,49 +298,36 @@
         <span class="contact-detail-label">First round</span>
         <span class="contact-detail-val">On us</span>
       </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">Open role</span>
-        <span class="contact-detail-val"><a href="#vacancy" class="contact-detail-link">Girlfriend &mdash; Jef Celis &rarr;</a></span>
-      </div>
-      <div class="secret-wrap">
+      <div style="margin-top:40px;">
         <input
           type="password"
           placeholder="Enter code..."
           id="secretCode"
-          aria-label="Secret code"
+          style="background:transparent;border:none;border-bottom:1px solid var(--border);color:white;padding:10px;width:200px;font-family:'DM Mono',monospace;font-size:12px;outline:none;"
         >
       </div>
     </div>
 
-    <div class="contact-form-wrap reveal" style="transition-delay:0.15s">
-      <div class="form-panel-label">
-        <span class="form-live"><span class="form-live-dot"></span>Live</span>
-        <span class="form-panel-title">Send us a message</span>
+    <form
+      class="contact-form reveal"
+      style="transition-delay:0.15s"
+      action="https://formspree.io/f/mzdyogzz"
+      method="POST"
+      onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Who are you?" id="fname">
       </div>
-
-      <form
-        class="contact-form"
-        id="contactForm"
-        action="https://formspree.io/f/mzdyogzz"
-        method="POST"
-        onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label for="fname">Your Name</label>
-          <input type="text" name="name" placeholder="Who are you?" id="fname" required>
-        </div>
-        <div class="form-group">
-          <label for="femail">Email</label>
-          <input type="email" name="email" placeholder="yourname@example.com" id="femail" required>
-        </div>
-        <div class="form-group">
-          <label for="fmsg">Message</label>
-          <textarea name="message" placeholder="What&rsquo;s on your mind..." id="fmsg" required></textarea>
-        </div>
-        <button class="btn-submit" type="submit"><span>Send It &rarr;</span></button>
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="form-foot">Geen spam. Geen nieuwsbrief. Strikt confidential.</p>
-      </form>
-    </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="yourname@example.com" id="femail">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="What's on your mind..." id="fmsg"></textarea>
+      </div>
+      <button class="btn-submit" type="submit"><span>Send It →</span></button>
+    </form>
   </div>
 </section>
 
@@ -475,9 +349,9 @@
 </section>
 
 <footer>
-  <p>&copy; 2026 Borreltje &mdash; All rights reserved and mostly upheld</p>
+  <p>© 2026 Borreltje — All rights reserved and mostly upheld</p>
   <div class="footer-logo">BRRLTJE</div>
-  <p>Nicolas &middot; Gilles &middot; Jef &middot; Len</p>
+  <p>Nicolas · Gilles · Jef · Len</p>
 </footer>
 
 <script src="script.js"></script>
