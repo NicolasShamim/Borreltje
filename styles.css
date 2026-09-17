@@ -1323,6 +1323,84 @@ body.hiring-dismissed nav { top: 0; }
   flex: 0 0 auto;
 }
 
+/* ── VACANCY: limited spots notice ── */
+.job-notice {
+  border-top: 1px solid var(--border);
+  padding: 34px 48px 38px;
+  background:
+    linear-gradient(180deg, rgba(201,168,76,0.05), rgba(201,168,76,0));
+}
+.job-notice-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+}
+.job-notice-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  animation: pulseDot 2.4s ease-out infinite;
+}
+.job-notice-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.job-notice-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--cream);
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+.job-notice-text {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--grey);
+  max-width: 720px;
+  margin-bottom: 14px;
+}
+.job-notice-text:last-of-type { margin-bottom: 0; }
+.job-notice-text strong {
+  color: var(--gold-light);
+  font-weight: 400;
+}
+.job-notice-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin-top: 28px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  width: fit-content;
+}
+.job-notice-stat {
+  background: var(--panel);
+  padding: 16px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.job-notice-stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--gold-light);
+}
+.job-notice-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(138,138,122,0.85);
+}
+
 .job-foot {
   display: flex;
   align-items: center;
@@ -1366,22 +1444,47 @@ body.hiring-dismissed nav { top: 0; }
   align-items: center;
   gap: 60px;
 }
-.highlight-media {
+.highlight-gallery {
   position: relative;
   flex: 0 0 auto;
-  width: 310px;
-  aspect-ratio: 9 / 16;
+  display: flex;
+  gap: 14px;
+}
+.highlight-shot {
+  position: relative;
+  margin: 0;
+  width: 168px;
   border: 1px solid rgba(201,168,76,0.3);
   background: #000;
   overflow: hidden;
   box-shadow: 0 30px 70px rgba(0,0,0,0.65), 0 0 40px rgba(201,168,76,0.08);
+  transition: transform 0.5s cubic-bezier(.2,.7,.3,1), border-color 0.4s;
 }
-.highlight-video {
+.highlight-shot img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
   display: block;
+  filter: grayscale(0.25) contrast(1.04);
+  transition: filter 0.5s;
 }
+.highlight-shot figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 18px 10px 9px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,235,224,0.85);
+  background: linear-gradient(to top, rgba(10,10,8,0.88), transparent);
+}
+.highlight-shot:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,168,76,0.65);
+}
+.highlight-shot:hover img { filter: grayscale(0) contrast(1.04); }
+
 .highlight-media-tag {
   position: absolute;
   top: 12px; left: 12px;
@@ -1394,24 +1497,8 @@ body.hiring-dismissed nav { top: 0; }
   border: 1px solid rgba(201,168,76,0.3);
   padding: 4px 8px;
   backdrop-filter: blur(4px);
+  z-index: 2;
 }
-.video-sound {
-  position: absolute;
-  bottom: 12px; right: 12px;
-  font-family: 'DM Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(240,235,224,0.8);
-  background: rgba(10,10,8,0.65);
-  border: 1px solid rgba(201,168,76,0.25);
-  padding: 7px 11px;
-  cursor: none;
-  backdrop-filter: blur(4px);
-  transition: color 0.3s, border-color 0.3s, background 0.3s;
-}
-.video-sound:hover { border-color: var(--gold); color: var(--cream); }
-.video-sound.on { color: var(--bg); background: var(--gold); border-color: var(--gold); }
 
 .highlight-text { flex: 1; min-width: 0; }
 .highlight-title {
@@ -1707,10 +1794,15 @@ body.hiring-dismissed nav { top: 0; }
   .job-block-text { font-size: 16px; }
   .job-list li, .job-steps li { font-size: 15px; }
   .job-foot { flex-direction: column; align-items: flex-start; gap: 18px; padding: 24px; }
+  .job-notice { padding: 28px 24px 30px; }
+  .job-notice-text { font-size: 16px; }
+  .job-notice-stats { width: 100%; }
+  .job-notice-stat { flex: 1 1 0; min-width: 0; padding: 14px 18px; }
 
   #highlight { padding: 70px 20px 80px; }
   .highlight-box { flex-direction: column; align-items: flex-start; gap: 32px; }
-  .highlight-media { width: 100%; max-width: 300px; }
+  .highlight-gallery { width: 100%; gap: 10px; }
+  .highlight-shot { width: auto; flex: 1 1 0; min-width: 0; }
   .highlight-caption { font-size: 16px; }
 
   #contact { padding: 80px 20px 90px; }
@@ -1940,12 +2032,21 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   .job-steps li { padding: 10px 0; gap: 12px; }
 
   .job-foot { flex-direction: column; align-items: flex-start; gap: 16px; padding: 22px; }
+  .job-notice { padding: 26px 22px 28px; }
+  .job-notice-title { font-size: 24px; }
+  .job-notice-text { font-size: 15.5px; line-height: 1.8; }
+  .job-notice-stats { width: 100%; }
+  .job-notice-stat { flex: 1 1 0; min-width: 0; padding: 13px 14px; }
+  .job-notice-stat-val { font-size: 20px; }
+  .job-notice-stat-label { font-size: 8px; letter-spacing: 0.14em; }
   .job-foot p { font-size: 9.5px; letter-spacing: 0.09em; line-height: 1.8; }
 
   /* ── Highlight of the month ── */
   #highlight { padding: 66px 18px 74px; }
   .highlight-box { flex-direction: column; align-items: stretch; gap: 26px; margin-top: 34px; }
-  .highlight-media { width: 100%; max-width: 272px; margin: 0 auto; }
+  .highlight-gallery { width: 100%; gap: 8px; }
+  .highlight-shot { width: auto; flex: 1 1 0; min-width: 0; }
+  .highlight-shot figcaption { font-size: 7px; letter-spacing: 0.14em; padding: 14px 6px 7px; }
   .highlight-title { font-size: 30px; margin: 6px 0 12px; }
   .highlight-caption { font-size: 16px; line-height: 1.8; max-width: none; }
   .highlight-meta { margin-top: 20px; gap: 6px; }

@@ -21,7 +21,7 @@ if (finePointer) {
   };
   animCursor();
 
-  document.querySelectorAll('a, button, .member-card, .overview-card, .sponsor-card, .honorable-card, .job-meta-item, .highlight-media').forEach(el => {
+  document.querySelectorAll('a, button, .member-card, .overview-card, .sponsor-card, .honorable-card, .job-meta-item, .highlight-shot').forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.style.transform = 'translate(-50%,-50%) scale(1.8)';
       ring.style.opacity = '0.3';
@@ -78,19 +78,6 @@ if (hiringClose) {
   hiringClose.addEventListener('click', () => {
     document.body.classList.add('hiring-dismissed');
     try { localStorage.setItem('brrltje-hiring-dismissed', '1'); } catch (err) {}
-  });
-}
-
-// ── HIGHLIGHT VIDEO SOUND ──
-const highlightVideo = document.getElementById('highlightVideo');
-const videoSound = document.getElementById('videoSound');
-
-if (highlightVideo && videoSound) {
-  videoSound.addEventListener('click', () => {
-    highlightVideo.muted = !highlightVideo.muted;
-    videoSound.querySelector('span').textContent = highlightVideo.muted ? 'Sound off' : 'Sound on';
-    videoSound.classList.toggle('on', !highlightVideo.muted);
-    if (!highlightVideo.muted) highlightVideo.play().catch(() => {});
   });
 }
 
