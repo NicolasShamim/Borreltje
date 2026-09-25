@@ -2183,71 +2183,84 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   .member-border { border-color: rgba(201,168,76,0.16); }
 }
 
-/* ── HERO DJ DROP: "D d d d de borreltje site" ── */
-#home .hero-drop { position: relative; z-index: 2; }
-.hero-drop {
+/* ── HERO DJ DROP: big "D d d d" stutter before the title ── */
+/* the h1 itself stays put; its pieces animate in on their own beat */
+.hero-title--drop { opacity: 1; animation: none; }
+.hero-title--drop .drop-word { color: var(--cream); }
+.hero-title--drop .drop-word + .drop-word { color: var(--gold); }
+.hero-title--drop .drop-word {
+  display: block;
+  opacity: 0;
+  animation: dropSlam 0.6s cubic-bezier(.2,1.4,.3,1) forwards;
+  animation-delay: 1.35s;
+}
+.hero-title--drop .drop-word + .drop-word { animation-delay: 1.5s; }
+
+.hero-title .drop-stutter {
   display: flex;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0 0.28em;
-  margin-bottom: 18px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(22px, 3vw, 34px);
-  letter-spacing: 0.06em;
-  line-height: 1;
-  color: var(--cream);
-  user-select: none;
-  outline: none;
+  gap: 0.12em;
+  color: var(--gold);
+  line-height: 0.9;
 }
-.hero-drop:focus-visible { outline: 1px dashed var(--gold-soft); outline-offset: 6px; }
-.drop-d,
-.drop-main {
+.drop-stutter i {
+  font-style: normal;
   display: inline-block;
   opacity: 0;
-  animation: dropPunch 0.32s cubic-bezier(.2,1.6,.4,1) forwards;
-  animation-delay: calc(0.35s + var(--i) * 0.22s);
+  animation: dropPunch 0.3s cubic-bezier(.2,1.6,.4,1) forwards;
+  animation-delay: calc(0.3s + var(--i) * 0.2s);
 }
-/* each stutter gets a bit smaller and dimmer, like the echo on a DJ tag */
-.drop-d:nth-child(1) { color: var(--gold-light); }
-.drop-d:nth-child(2) { font-size: 0.86em; color: rgba(240,235,224,0.8); }
-.drop-d:nth-child(3) { font-size: 0.74em; color: rgba(240,235,224,0.6); }
-.drop-d:nth-child(4) { font-size: 0.64em; color: rgba(240,235,224,0.45); }
-.drop-main {
-  --i: 4;
-  color: var(--gold);
-  animation: dropSlam 0.5s cubic-bezier(.2,1.4,.3,1) forwards;
-  animation-delay: calc(0.35s + var(--i) * 0.22s + 0.1s);
-}
-.drop-main::after {
-  content: '';
-  display: block;
-  height: 1px;
-  margin-top: 4px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: dropLine 0.6s 1.5s ease-out forwards;
-}
-.hero-drop.replay .drop-d,
-.hero-drop.replay .drop-main,
-.hero-drop.replay .drop-main::after { animation: none; }
+/* each stutter smaller and dimmer, like the echo on a DJ tag */
+.drop-stutter i:nth-child(1) { font-size: 0.62em; color: var(--gold-light); }
+.drop-stutter i:nth-child(2) { font-size: 0.5em;  --to: 0.8; }
+.drop-stutter i:nth-child(3) { font-size: 0.4em;  --to: 0.6; }
+.drop-stutter i:nth-child(4) { font-size: 0.32em; --to: 0.45; }
+
+.hero-title--drop.replay .drop-stutter i,
+.hero-title--drop.replay .drop-word { animation: none; }
 
 @keyframes dropPunch {
-  0%   { opacity: 0; transform: scale(1.9) translateY(-6px); }
-  60%  { opacity: 1; transform: scale(0.92) translateX(-2px); }
-  80%  { transform: scale(1.04) translateX(2px); }
-  100% { opacity: 1; transform: none; }
+  0%   { opacity: 0; transform: scale(1.8) translateY(-0.1em); }
+  60%  { opacity: var(--to, 1); transform: scale(0.92) translateX(-0.03em); }
+  80%  { transform: scale(1.04) translateX(0.03em); }
+  100% { opacity: var(--to, 1); transform: none; }
 }
 @keyframes dropSlam {
-  0%   { opacity: 0; transform: translateX(-24px) skewX(-18deg); letter-spacing: 0.4em; }
-  70%  { opacity: 1; transform: translateX(3px) skewX(4deg); }
-  100% { opacity: 1; transform: none; letter-spacing: 0.06em; }
+  0%   { opacity: 0; transform: translateX(-0.3em) skewX(-14deg); }
+  70%  { opacity: 1; transform: translateX(0.03em) skewX(3deg); }
+  100% { opacity: 1; transform: none; }
 }
-@keyframes dropLine { to { transform: scaleX(1); } }
 
-@media (max-width: 768px) {
-  .hero-drop { font-size: 22px; margin-bottom: 14px; }
-}
 @media (prefers-reduced-motion: reduce) {
-  .drop-d, .drop-main, .drop-main::after { animation: none; opacity: 1; transform: none; }
+  .drop-stutter i, .hero-title--drop .drop-word { animation: none; opacity: var(--to, 1); transform: none; }
+}
+
+/* ── HERO CUTOUT: the whole figure, uncropped, to the right of the title ── */
+.hero-photo--cutout {
+  top: 130px;
+  bottom: 0;
+  right: 11vw;
+  left: auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  /* glow on the wrapper, not the img: the img's mask would clip it into a box */
+  filter: drop-shadow(0 0 36px rgba(201,168,76,0.16));
+}
+.hero-photo--cutout::after { display: none; }
+.hero-photo--cutout img {
+  width: auto;
+  height: 100%;
+  max-width: 40vw;
+  object-fit: contain;
+  object-position: bottom right;
+  /* only soften where the feet meet the bottom edge */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 9%);
+  mask-image: linear-gradient(to top, transparent 0%, black 9%);
+}
+@media (max-width: 768px) {
+  /* on a phone he sits behind the text, right-aligned and dimmed so the title stays readable */
+  .hero-photo--cutout { top: auto; bottom: 0; right: 0; width: auto; height: 64svh; opacity: 0.4 !important; }
+  .hero-photo--cutout img { height: 100%; max-width: none; }
 }
