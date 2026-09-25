@@ -2182,3 +2182,72 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   .member-name-wrap { bottom: 80px; }
   .member-border { border-color: rgba(201,168,76,0.16); }
 }
+
+/* ── HERO DJ DROP: "D d d d de borreltje site" ── */
+#home .hero-drop { position: relative; z-index: 2; }
+.hero-drop {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.28em;
+  margin-bottom: 18px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--cream);
+  user-select: none;
+  outline: none;
+}
+.hero-drop:focus-visible { outline: 1px dashed var(--gold-soft); outline-offset: 6px; }
+.drop-d,
+.drop-main {
+  display: inline-block;
+  opacity: 0;
+  animation: dropPunch 0.32s cubic-bezier(.2,1.6,.4,1) forwards;
+  animation-delay: calc(0.35s + var(--i) * 0.22s);
+}
+/* each stutter gets a bit smaller and dimmer, like the echo on a DJ tag */
+.drop-d:nth-child(1) { color: var(--gold-light); }
+.drop-d:nth-child(2) { font-size: 0.86em; color: rgba(240,235,224,0.8); }
+.drop-d:nth-child(3) { font-size: 0.74em; color: rgba(240,235,224,0.6); }
+.drop-d:nth-child(4) { font-size: 0.64em; color: rgba(240,235,224,0.45); }
+.drop-main {
+  --i: 4;
+  color: var(--gold);
+  animation: dropSlam 0.5s cubic-bezier(.2,1.4,.3,1) forwards;
+  animation-delay: calc(0.35s + var(--i) * 0.22s + 0.1s);
+}
+.drop-main::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 4px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: dropLine 0.6s 1.5s ease-out forwards;
+}
+.hero-drop.replay .drop-d,
+.hero-drop.replay .drop-main,
+.hero-drop.replay .drop-main::after { animation: none; }
+
+@keyframes dropPunch {
+  0%   { opacity: 0; transform: scale(1.9) translateY(-6px); }
+  60%  { opacity: 1; transform: scale(0.92) translateX(-2px); }
+  80%  { transform: scale(1.04) translateX(2px); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes dropSlam {
+  0%   { opacity: 0; transform: translateX(-24px) skewX(-18deg); letter-spacing: 0.4em; }
+  70%  { opacity: 1; transform: translateX(3px) skewX(4deg); }
+  100% { opacity: 1; transform: none; letter-spacing: 0.06em; }
+}
+@keyframes dropLine { to { transform: scaleX(1); } }
+
+@media (max-width: 768px) {
+  .hero-drop { font-size: 22px; margin-bottom: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drop-d, .drop-main, .drop-main::after { animation: none; opacity: 1; transform: none; }
+}

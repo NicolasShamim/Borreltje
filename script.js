@@ -21,7 +21,7 @@ if (finePointer) {
   };
   animCursor();
 
-  document.querySelectorAll('a, button, .member-card, .overview-card, .sponsor-card, .honorable-card, .job-meta-item, .highlight-shot').forEach(el => {
+  document.querySelectorAll('a, button, .member-card, .overview-card, .sponsor-card, .honorable-card, .job-meta-item, .highlight-shot, .hero-drop').forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.style.transform = 'translate(-50%,-50%) scale(1.8)';
       ring.style.opacity = '0.3';
@@ -78,6 +78,22 @@ if (hiringClose) {
   hiringClose.addEventListener('click', () => {
     document.body.classList.add('hiring-dismissed');
     try { localStorage.setItem('brrltje-hiring-dismissed', '1'); } catch (err) {}
+  });
+}
+
+// ── HERO DJ DROP ──
+// Click (or Enter/Space) replays the stutter: drop the animations for one
+// frame, force a reflow, then put them back so they run from the start.
+const heroDrop = document.getElementById('heroDrop');
+if (heroDrop) {
+  const replayDrop = () => {
+    heroDrop.classList.add('replay');
+    void heroDrop.offsetWidth;
+    heroDrop.classList.remove('replay');
+  };
+  heroDrop.addEventListener('click', replayDrop);
+  heroDrop.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); replayDrop(); }
   });
 }
 
