@@ -1573,7 +1573,7 @@ body.hiring-dismissed nav { top: 0; }
 }
 .member-card--single:hover .member-bg::after { opacity: 0.55; }
 
-/* ── TEJO + MOUSHI: same ring on honorable cards (path built in script.js) ── */
+/* ── TEJO + MUSHI: same ring on honorable cards (path built in script.js) ── */
 .honorable-card--single {
   z-index: 3;
   padding: 28px 26px;
