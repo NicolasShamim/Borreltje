@@ -81,6 +81,20 @@ if (hiringClose) {
   });
 }
 
+// ── HIGHLIGHT VIDEO SOUND ──
+// Each sound button toggles the video in its own frame, so the archive can
+// hold any number of video months.
+document.querySelectorAll('.video-sound').forEach(btn => {
+  const video = btn.parentElement.querySelector('video');
+  if (!video) return;
+  btn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    btn.querySelector('span').textContent = video.muted ? 'Sound off' : 'Sound on';
+    btn.classList.toggle('on', !video.muted);
+    if (!video.muted) video.play().catch(() => {});
+  });
+});
+
 // ── HERO DJ DROP ──
 // Clicking the title replays the stutter: drop the animations for one
 // frame, force a reflow, then put them back so they run from the start.

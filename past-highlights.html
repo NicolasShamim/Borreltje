@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAST HIGHLIGHTS &middot; BORRELTJE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HIRING BAR -->
+<div class="hiring-bar" id="hiringBar">
+  <span class="hiring-dot"></span>
+  <p class="hiring-text"><strong>Now hiring</strong><span class="hiring-sep">/</span>Girlfriend &mdash; Jef Celis<span class="hiring-sep">/</span><span class="hiring-loc">Antwerp, BE &middot; Immediate start</span></p>
+  <a href="index.html#vacancy" class="hiring-cta">View opening &rarr;</a>
+  <button class="hiring-close" id="hiringClose" type="button" aria-label="Dismiss announcement">&times;</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Borreltje</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#vacancy">Careers</a></li>
+    <li class="nav-optional"><a href="#past" class="active">Highlight</a></li>
+    <li><a href="index.html#members">Members</a></li>
+    <li><a href="index.html#sponsors">Sponsors</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" type="button"
+          aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
+
+<!-- PAST HIGHLIGHTS: newest first, same layout as the home page highlight -->
+<section id="past">
+  <a href="index.html#highlight" class="past-back">&larr; Terug naar deze maand</a>
+  <div class="section-label">Archief</div>
+  <h1 class="section-title" style="font-size:clamp(26px,7vw,48px);">PAST HIGHLIGHTS</h1>
+  <p class="past-intro">Alles wat ooit highlight van de maand was. Nieuwste eerst.</p>
+
+  <!-- Augustus 2026 -->
+  <article class="past-entry reveal">
+    <div class="highlight-box">
+      <div class="highlight-media">
+        <video class="highlight-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/koffiekoek.mp4" type="video/mp4">
+        </video>
+        <span class="highlight-media-tag">Video</span>
+        <button class="video-sound" type="button" aria-label="Toggle sound">
+          <span>Sound off</span>
+        </button>
+      </div>
+      <div class="highlight-text">
+        <div class="highlight-date">Augustus 2026</div>
+        <p class="highlight-title">Chocolade cremekoek</p>
+        <p class="highlight-caption">
+          Negen seconden die de maand samenvatten. Verdere uitleg is niet beschikbaar.
+        </p>
+        <div class="highlight-meta">
+          <span>00:09</span>
+          <span>Antwerp</span>
+          <span>Unedited</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Juli 2026 -->
+  <article class="past-entry reveal">
+    <div class="highlight-box">
+      <div class="highlight-media">
+        <img src="assets/highlight.jpg" alt="Belgische vlag als cape in een volle straat supporters, 's avonds voor een groot scherm" loading="lazy">
+        <span class="highlight-media-tag">Foto</span>
+      </div>
+      <div class="highlight-text">
+        <div class="highlight-date">Juli 2026</div>
+        <p class="highlight-title">De duvels</p>
+        <p class="highlight-caption">
+          Vlag als cape, een volle straat en een groot scherm. Juli in &eacute;&eacute;n beeld.
+        </p>
+        <div class="highlight-meta">
+          <span>1 shot</span>
+          <span>Rode Duivels</span>
+          <span>Unedited</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer>
+  <p>&copy; 2026 Borreltje &mdash; All rights reserved and mostly upheld</p>
+  <div class="footer-logo">BRRLTJE</div>
+  <p>Nicolas &middot; Gilles &middot; Jef &middot; Len</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
