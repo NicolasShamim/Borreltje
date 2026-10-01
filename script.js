@@ -140,6 +140,46 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 reveals.forEach(r => obs.observe(r));
 
+// ── SINGLE RING (FLUID) ──
+// Jef's ring is static markup with a 3:4 viewBox because member cards are
+// always 3:4. Honorable cards change shape with the grid, so their ring is
+// rebuilt at the card's real pixel size. Same rhythm as Jef's: one "SINGLE·"
+// every ~66.8px, gliding one unit per 1.6s, text twice the loop so no seam.
+const RING_INSET = 8;
+const RING_UNIT = 66.8;
+
+function drawRing(svg, id) {
+  const w = svg.parentElement.clientWidth;
+  const h = svg.parentElement.clientHeight;
+  if (!w || !h) return;
+
+  const i = RING_INSET;
+  const loop = 2 * (w - 2 * i) + 2 * (h - 2 * i);
+  const count = Math.max(1, Math.round(loop / RING_UNIT));
+  const unit = loop / count;
+
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.innerHTML =
+    `<defs><path id="${id}" d="M ${i} ${i} H ${w - i} V ${h - i} H ${i} Z"/></defs>` +
+    `<use class="single-ring-track" href="#${id}"/>` +
+    `<text class="single-ring-text" textLength="${2 * loop}" lengthAdjust="spacing" dy="0.34em">` +
+    `<textPath href="#${id}" startOffset="${-2 * unit}">${'SINGLE·'.repeat(2 * count)}` +
+    `<animate attributeName="startOffset" from="${-2 * unit}" to="${-unit}"` +
+    ` dur="${(1.6 * unit / RING_UNIT).toFixed(3)}s" repeatCount="indefinite"/>` +
+    `</textPath></text>`;
+}
+
+document.querySelectorAll('.single-ring--fit').forEach((svg, n) => {
+  const id = 'singleRingFit' + n;
+  let size = '';
+  new ResizeObserver(() => {
+    const next = svg.parentElement.clientWidth + 'x' + svg.parentElement.clientHeight;
+    if (next === size) return;
+    size = next;
+    drawRing(svg, id);
+  }).observe(svg.parentElement);
+});
+
 // ── FORM ──
 // Posts to Formspree over fetch so the sender never leaves the page.
 // If JS is unavailable the plain form POST still works as a fallback.

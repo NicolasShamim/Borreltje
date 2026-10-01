@@ -1573,6 +1573,24 @@ body.hiring-dismissed nav { top: 0; }
 }
 .member-card--single:hover .member-bg::after { opacity: 0.55; }
 
+/* ── TEJO + MOUSHI: same ring on honorable cards (path built in script.js) ── */
+.honorable-card--single {
+  z-index: 3;
+  padding: 28px 26px;
+  border-color: rgba(201,168,76,0.5);
+  animation: singleGlow 3.4s ease-in-out infinite;
+}
+.honorable-card--single:hover { border-color: rgba(201,168,76,0.75); }
+/* Jef's inner glow lives on .member-border; singleGlow owns this card's
+   box-shadow, so the inset copy goes on a layer of its own */
+.honorable-card--single::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 26px rgba(201,168,76,0.16);
+  pointer-events: none;
+}
+
 .member-info a {
   color: var(--gold-light);
   text-decoration: none;
@@ -1816,11 +1834,13 @@ body.hiring-dismissed nav { top: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .member-card--single,
+  .honorable-card--single,
   .contact-form-wrap,
   .hiring-dot,
   .job-status-dot,
   .form-live-dot { animation: none; }
-  .member-card--single { box-shadow: 0 0 30px rgba(201,168,76,0.26); }
+  .member-card--single,
+  .honorable-card--single { box-shadow: 0 0 30px rgba(201,168,76,0.26); }
   .contact-form-wrap { box-shadow: 0 26px 70px rgba(0,0,0,0.55), 0 0 56px rgba(201,168,76,0.16); }
 }
 
@@ -2115,6 +2135,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   .honorable-label { font-size: 9px; letter-spacing: 0.24em; margin-bottom: 20px; }
   .honorable-grid { grid-template-columns: 1fr; gap: 2px; }
   .honorable-card { padding: 18px 18px 20px; }
+  .honorable-card--single { padding: 26px 26px 28px; }
   .honorable-name { font-size: 17px; margin-bottom: 4px; }
   .honorable-tag { font-size: 8px; margin-bottom: 8px; }
   .honorable-desc { font-size: 13.5px; line-height: 1.6; }
