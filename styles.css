@@ -2359,7 +2359,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   font-style: italic;
 }
 .past-entry {
-  max-width: 1000px;
+  max-width: 1120px;
   padding: 56px 0;
   border-top: 1px solid var(--border);
 }
@@ -2400,7 +2400,25 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
 .video-sound:hover { border-color: var(--gold); color: var(--cream); }
 .video-sound.on { color: var(--bg); background: var(--gold); border-color: var(--gold); }
 
+/* a month with more than one frame: same height, each at its own ratio,
+   so a landscape photo sits next to a portrait video without cropping */
+.past-entry--multi .highlight-box { max-width: none; }
+.highlight-media-row {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 14px;
+}
+.highlight-media-row .highlight-media { width: auto; height: min(360px, 34vw); }
+.highlight-media--wide { aspect-ratio: 4 / 3; }
+
+@media (max-width: 1080px) {
+  .past-entry--multi .highlight-box { flex-direction: column; align-items: flex-start; gap: 32px; }
+}
+
 @media (max-width: 768px) {
+  .highlight-media-row { flex-direction: column; gap: 10px; }
+  .highlight-media-row .highlight-media { width: 100%; height: auto; }
+  .highlight-media-row .highlight-media--wide { max-width: none; }
   .highlight-archive {
     margin-top: 40px;
     grid-template-columns: 1fr auto;
