@@ -1484,6 +1484,11 @@ body.hiring-dismissed nav { top: 0; }
   border-color: rgba(201,168,76,0.65);
 }
 .highlight-shot:hover img { filter: grayscale(0) contrast(1.04); }
+/* full phone screenshots: keep their own ratio so nothing gets cropped */
+.highlight-gallery--phone .highlight-shot img { aspect-ratio: 1290 / 2796; }
+@media (min-width: 769px) {
+  .highlight-gallery--phone .highlight-shot { width: 220px; }
+}
 
 .highlight-media-tag {
   position: absolute;
