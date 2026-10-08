@@ -1484,10 +1484,15 @@ body.hiring-dismissed nav { top: 0; }
   border-color: rgba(201,168,76,0.65);
 }
 .highlight-shot:hover img { filter: grayscale(0) contrast(1.04); }
-/* full phone screenshots: keep their own ratio so nothing gets cropped */
-.highlight-gallery--phone .highlight-shot img { aspect-ratio: 1290 / 2796; }
-@media (min-width: 769px) {
-  .highlight-gallery--phone .highlight-shot { width: 220px; }
+/* mixed shapes, nothing cropped: each shot grows by its own aspect ratio (--ar),
+   so the whole row ends up one height; text moves below the row */
+.highlight-box--stack { flex-direction: column; align-items: flex-start; gap: 36px; }
+.highlight-gallery--justified { width: 100%; }
+.highlight-gallery--justified .highlight-shot { width: auto; flex: var(--ar) 1 0px; min-width: 0; }
+.highlight-gallery--justified .highlight-shot img { aspect-ratio: var(--ar); }
+@media (max-width: 768px) {
+  .highlight-gallery--justified { flex-wrap: wrap; }
+  .highlight-gallery--justified .highlight-shot--wide { flex-basis: 100%; }
 }
 
 .highlight-media-tag {
