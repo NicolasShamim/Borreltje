@@ -2448,13 +2448,21 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   .video-sound { bottom: 10px; right: 10px; padding: 9px 13px; font-size: 8.5px; cursor: pointer; }
 }
 
-/* ── Vacancy card: reference photo strip under the title ── */
+/* ── Vacancy card: reference photo next to the "Plaatsen beperkt" title ── */
+.job-notice-titlerow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 32px;
+  margin-bottom: 18px;
+}
+.job-notice-titlerow .job-notice-title { margin-bottom: 0; }
 .job-ref {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding: 20px 48px;
-  border-bottom: 1px solid var(--border);
+  gap: 18px;
+  padding-left: 32px;
+  border-left: 1px solid var(--border);
 }
 .job-ref-photo {
   position: relative;
@@ -2478,7 +2486,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   stroke-width: 1.5px;
   vector-effect: non-scaling-stroke;
 }
-.job-ref-text { display: flex; flex-direction: column; gap: 8px; }
+.job-ref-text { display: flex; flex-direction: column; gap: 8px; max-width: 280px; }
 .job-ref-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
@@ -2487,7 +2495,7 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
   color: rgba(201,168,76,0.6);
 }
 .job-ref-val {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--grey);
   font-style: italic;
@@ -2495,7 +2503,8 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rota
 .job-ref-val strong { color: var(--cream); font-style: normal; font-weight: 400; }
 
 @media (max-width: 768px) {
-  .job-ref { gap: 16px; padding: 18px 22px; }
-  .job-ref-photo { width: 104px; }
+  .job-notice-titlerow { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .job-ref { gap: 14px; padding-left: 0; border-left: 0; }
+  .job-ref-photo { width: 100px; }
   .job-ref-val { font-size: 15px; }
 }
